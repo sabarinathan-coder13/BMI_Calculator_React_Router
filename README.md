@@ -1,5 +1,5 @@
 # Ex06 BMI Calculator
-## Date: 
+## Date: 09.09.2026
 
 ## AIM
 To develop a responsive and interactive Body Mass Index (BMI) Calculator using React that allows users to input their height and weight, and calculates their BMI to categorize their health status (e.g., Underweight, Normal, Overweight, Obese).
@@ -64,13 +64,66 @@ Create routing structure with react-router-dom:
 <li>Add styling using CSS or Tailwind.</li>
 
 ## PROGRAM
+App.jsx
+~~~
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home.jsx";
 
+        <div className="buttons">
+          <button className="btn calculate" onClick={calculateBMI}>
+            Calculate
+          </button>
+          <button className="btn reset" onClick={reset}>
+            Reset
+          </button>
+        </div>
 
+        {bmi && (
+          <div className="result fade-in">
+            <h2>Your BMI: {bmi}</h2>
+            <p className={`category ${category.toLowerCase().replace(" ", "-")}`}>
+              {category}
+            </p>
+          </div>
+        )}
+      </div>
+      <p className="footer">Designed by Ahamed Jaseer Sha</p>
+    </div>
+  );
+}
+
+export default BMICalculator;
+~~~
+Home.jsx
+~~~
+import React from "react";
+import { Link } from "react-router-dom";
+
+function Home() {
+  return (
+    <div className="landing">
+      <div className="hero">
+        <h1 className="hero-title">Track Your Health Easily</h1>
+        <p className="hero-subtitle">
+          Calculate your BMI instantly and understand your health category.
+        </p>
+        <Link to="/calculator">
+          <button className="btn primary">Start Calculating</button>
+        </Link>
+      </div>
+      <p className="footer">Designed by Ahamed Jaseer Sha</p>
+    </div>
+  );
+}
+
+export default Home;
+~~~
 
 ## OUTPUT
-
-
-
-
+![alt text](<Screenshot 2026-09-05 143701.png>)
+![alt text](<Screenshot 2026-09-05 143709.png>)
+![alt text](<Screenshot 2026-09-05 143714.png>)
+![alt text](<Screenshot 2026-09-05 143721.png>)
 ## RESULT
 The BMI Calculator successfully takes user input for height and weight, performs the BMI calculation in real-time using React state and event handling, and displays the BMI value along with the corresponding health category.
